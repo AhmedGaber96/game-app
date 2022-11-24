@@ -1,13 +1,99 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400&family=Dancing+Script&family=Montserrat+Alternates&family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,600;1,700;1,800&family=Roboto+Serif:opsz,wght@8..144,400;8..144,800&family=Roboto:ital@0;1&family=Source+Sans+Pro&family=Source+Serif+Pro&family=Xanh+Mono:ital@1&display=swap');
+:root{
+  --main-color:#272b30;
+  --text-color:#fff;
+  --second-color:#32383e;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background-color: var(--main-color);
+  color:var(--text-color) ;
+  color: #aaa;
 }
+
+.Navbar_bg{
+  background-color: var(--main-color);
+  border-bottom: 1px solid rgba(28,28,28,.6);
+  text-shadow: 1px 1px 1px rgb(0 0 0 / 30%);
+  /* color: var(--text-color) !important; */
+  width: 90%;
+  margin: auto;
+}
+
+
+a,a:hover{
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+ 
+
+}
+.logowidth{
+  width: 70px;
+  filter: drop-shadow(1px 1px 3px #1983e6ce);
+}
+.logow{
+width: 15%;
+font-family: Xanh Mono,monospace;
+}
+
+.secound-color{
+  background-color: var(--second-color);
+}
+
+
+.form-bg{
+  background-color: #1c1e22 !important;
+    border: 0 solid rgba(0,0,0,.6);
+    border-radius: 5px;
+    color: white !important;
+}
+
+.imghight{
+  background-image: url(img/gaming.ebaf2ffc84f4451d.jpg);
+  background-size: 100% 100%;
+}
+.logo-login{
+  width: 20%;
+}
+.find-track{
+  background: url(img/paladins.b44d33d6e7ee1ba8.png);
+  background-repeat: no-repeat;
+  background-color: #1c1e22;
+  background-position: top;
+  background-size: contain;
+  border-radius: .3rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(0,0,0,.6);
+  padding: 4rem 2rem;
+}
+.headspan{
+  color: #49acff;
+}
+
+.three-color{
+  background-color:#4799eb ;
+}
+
+.bigmargin{
+  margin-top: 100px;
+}
+.Card{
+  display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #32383e;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.6);
+    border-radius: .25rem;
+    transition: all .3s ;
+}
+.Card:hover{
+ transform: scale(1.05,1.05);
+}
+.dark-span{
+  background-color: #32383e;
+  color: fff;
+}
+
