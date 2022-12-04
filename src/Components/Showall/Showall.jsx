@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import Card from '../Card/Card';
+
 export default function Showall() {
   useEffect(()=>{
     getsllGame()
@@ -50,18 +52,10 @@ console.log(d);
       <div className="row gy-3">
       {some.map((some,index)=> <div className="col-md-3" key={index}>
                 <Link to={`/gamedetails/${some?.id}`}>
+                  
+                  <Card some={some}/>
 
-                <div className="Card w-100 text-secondary shadow">
-                    <img src={some?.thumbnail} alt="" className='w-100' />
-                    <div className='p-3 d-flex justify-content-between align-items-center'>
-                    <h4>{some?.title.split("").splice(0,10).join("")}</h4>
-                    <span className='px-2 py-1 rounded-2 three-color text-white small'>Free</span>
-
-                    </div>
-                    
-
-
-                </div>
+             
                 
                 </Link>
             </div>)}
@@ -70,20 +64,11 @@ console.log(d);
     </div>
     <div className="container lastt d-none mt-3">
     <div className="row gy-3">
-      {allGame.map((allGame,index)=> <div className="col-md-3" key={index}>
-                <Link to={`/gamedetails/${allGame?.id}`}>
+      {allGame.map((some,index)=> <div className="col-md-3" key={index}>
+                <Link to={`/gamedetails/${some?.id}`}>
+                <Card some={some}/>
 
-                <div className="Card w-100 text-secondary shadow">
-                    <img src={allGame?.thumbnail} alt="" className='w-100' />
-                    <div className='p-3 d-flex justify-content-between align-items-center'>
-                    <h4>{allGame?.title.split("").splice(0,10).join("")}</h4>
-                    <span className='px-2 py-1 rounded-2 three-color text-white small'>Free</span>
-
-                    </div>
-                    
-
-
-                </div>
+               
                 
                 </Link>
             </div>)}

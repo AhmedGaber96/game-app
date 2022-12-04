@@ -1,10 +1,10 @@
 import  Axios  from 'axios';
 import Joi from 'joi'; 
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import img from '../../img/logo.png'
 export default function Login({saveUserData}) {
-  
   let navigate = useNavigate();
     const [user,setUser] = useState({
         email:'',
@@ -22,7 +22,8 @@ export default function Login({saveUserData}) {
         })
        return scheme.validate(user,{abortEarly:false});
     }
-
+    
+   
 //////// send data to api////////////
     async function sendUserDataToApi(){
      let{data}= await Axios.post(` https://route-egypt-api.herokuapp.com/signin` , user)
@@ -31,15 +32,16 @@ export default function Login({saveUserData}) {
         localStorage.setItem('usertoken',data.token)
         saveUserData()
         navigate('/home')
-      
-
+       
      }
+     
 
      else{
         setload(false)
         setError(data.message)
      }
     }
+  
 
     function submiteLoginForm(e){
 
@@ -55,8 +57,6 @@ export default function Login({saveUserData}) {
         sendUserDataToApi();
 
        }
-
-    
 
     }
 ///////// get user from user//////////
@@ -105,6 +105,7 @@ export default function Login({saveUserData}) {
             </div>
 
           </form>
+
         </div>
       </div>
 

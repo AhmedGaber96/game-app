@@ -3,6 +3,12 @@
   --main-color:#272b30;
   --text-color:#fff;
   --second-color:#32383e;
+  --card-header:rgb(152, 152, 152);
+  --genre-color:#7a8288;
+
+
+
+
 }
 
 body{
@@ -96,4 +102,13 @@ font-family: Xanh Mono,monospace;
   background-color: #32383e;
   color: fff;
 }
+.card-headerr{
+  color: var(--card-header) !important;
+}
+.genre{
+  background-color: var(--genre-color);
+  font-size: 11px;
+}
+
+
 

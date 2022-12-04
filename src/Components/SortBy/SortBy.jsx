@@ -3,13 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Card from '../Card/Card';
 
-
-
-export default function Platform() {
-
- 
+export default function SortBy() {
     let params= useParams();
-    let gamepath= params.pppp;
+    let gamepath= params.fff;
 
     useEffect(()=>{
         getplatform()
@@ -35,15 +31,15 @@ export default function Platform() {
         }
         
     async function getplatform(){
-      const options = {
-        method: 'GET',
-        url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
-        params: {platform:gamepath },
-        headers: {
-          'X-RapidAPI-Key': 'ff96dee780msh653994497597adap14cf1djsn60523c464c4c',
-          'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
-        }
-      };
+        const options = {
+            method: 'GET',
+            url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
+            params: {'sort-by': gamepath},
+            headers: {
+              'X-RapidAPI-Key': 'ff96dee780msh653994497597adap14cf1djsn60523c464c4c',
+              'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+            }
+          };
         let {data}= await axios.get(`https://free-to-play-games-database.p.rapidapi.com/api/games`,options)
         let someData = data.splice(0,20)
         setsomeplatform(someData)
@@ -65,6 +61,29 @@ export default function Platform() {
     
     }
 
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   return (<>
   {someplatform.length==0? <>
     <div className='d-flex justify-content-center align-items-center position-fixed bg-dark top-0 start-0 end-0 bottom-0'>
@@ -76,9 +95,6 @@ export default function Platform() {
       {someplatform.map((some,index)=> <div className="col-md-3" key={index}>
                 <Link to={`/gamedetails/${some?.id}`}>
                   <Card some={some}/>
-
-        
-                
                 </Link>
             </div>)}
       </div >
@@ -89,8 +105,6 @@ export default function Platform() {
       {platform.map((some,index)=> <div className="col-md-3" key={index}>
                 <Link to={`/gamedetails/${some?.id}`}>
                 <Card some={some}/>
-
-                
                 </Link>
             </div>)}
       </div >

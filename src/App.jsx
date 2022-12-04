@@ -12,24 +12,30 @@ import Home from './Components/Home/Home';
 import GameDetails from './Components/GameDetails/GameDetails';
 import Showall from './Components/Showall/Showall';
 import Platform from './Components/Platform/Platform';
-import Browser from './Components/Browser/Browser'
-import RelasDate from './Components/RelaseDate/RelasDate';
-import Alphabetical from './Components/Alphabetical/Alphabetical'
+import SortBy from './Components/SortBy/SortBy';
+import Categories from './Components/Categories/Categories';
+import PageError from './Components/PageError/PageError';
+import Gradroute from './Components/Gardroute/Gradroute';
+
+
+
+
 function App() {
   const [userData, setuserData] = useState(null)
   let routers = createBrowserRouter([
     {path:'/',element:<Layout userData={userData} logOut={logOut}/>,children:[
       {path:'register',element:<Register/>},
-      {path:'home',element:<Home/>},
-      {path:'showall',element:<Showall/>},
-      {path:'Platform/:pppp',element:<Platform/>},
-      {path:'Platformm/:sss',element:<Browser/>},
-      {path:'release-date/:fff',element:<RelasDate/>},
-      {path:'alphabetical/:gg',element:<Alphabetical/>},
+      {path:'home',element: <Gradroute userData={userData} saveUserData={saveUserData}><Home userData={userData}/></Gradroute> },
+      {path:'showall',element: <Gradroute userData={userData} saveUserData={saveUserData}><Showall userData={userData}/></Gradroute> },
+      {path:'Platform/:pppp',element: <Gradroute userData={userData} saveUserData={saveUserData}><Platform userData={userData}/></Gradroute> },
+      {path:'sort-by/:fff',element: <Gradroute userData={userData} saveUserData={saveUserData}><SortBy userData={userData}/></Gradroute> },
+      {path:'categories/:ccc',element: <Gradroute userData={userData} saveUserData={saveUserData}><Categories userData={userData}/></Gradroute> },
+      {path:'gamedetails/:id',element:<Gradroute userData={userData} saveUserData={saveUserData}><GameDetails userData={userData} /></Gradroute>},
       {index:true,element:<Login saveUserData={saveUserData}/>},
-      {path:'gamedetails/:id',element:<GameDetails saveUserData={saveUserData}/>},
+      {path:'*',element:<PageError/>},
     ]} 
   ])
+  
 
 useEffect(()=>{
   if(localStorage.getItem('usertoken')!==null)

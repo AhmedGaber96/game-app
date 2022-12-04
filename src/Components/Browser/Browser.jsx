@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import Card from '../Card/Card';
 
 
 
@@ -75,10 +76,12 @@ export default function Platform() {
   </> : <>
   <div className="container bigmargin text-center">
       <div className="row gy-3">
-      {someplatform.map((someplatform,index)=> <div className="col-md-3" key={index}>
-                <Link to={`/gamedetails/${someplatform?.id}`}>
+      {someplatform.map((some,index)=> <div className="col-md-3" key={index}>
+                <Link to={`/gamedetails/${some?.id}`}>
+                <Card some={some}/>
 
-                <div className="Card w-100 text-secondary shadow">
+
+                {/* <div className="Card w-100 text-secondary shadow">
                     <img src={someplatform?.thumbnail} alt="" className='w-100' />
                     <div className='p-3 d-flex justify-content-between align-items-center'>
                     <h4>{someplatform?.title.split("").splice(0,10).join("")}</h4>
@@ -88,7 +91,7 @@ export default function Platform() {
                     
 
 
-                </div>
+                </div> */}
                 
                 </Link>
             </div>)}
@@ -97,10 +100,12 @@ export default function Platform() {
     </div>
     <div className="container lastt d-none mt-3">
     <div className="row gy-3">
-      {platform.map((platform,index)=> <div className="col-md-3" key={index}>
-                <Link to={`/gamedetails/${platform?.id}`}>
+      {platform.map((some,index)=> <div className="col-md-3" key={index}>
+                <Link to={`/gamedetails/${some?.id}`}>
+                <Card some={some}/>
 
-                <div className="Card w-100 text-secondary shadow">
+
+                {/* <div className="Card w-100 text-secondary shadow">
                     <img src={platform?.thumbnail} alt="" className='w-100' />
                     <div className='p-3 d-flex justify-content-between align-items-center'>
                     <h4>{platform?.title.split("").splice(0,10).join("")}</h4>
@@ -110,7 +115,7 @@ export default function Platform() {
                     
 
 
-                </div>
+                </div> */}
                 
                 </Link>
             </div>)}

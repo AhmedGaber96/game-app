@@ -7,7 +7,6 @@ export default function Home() {
 
     useEffect(()=>{
         getThreeGmae()
-        
     },[])
 
 async function getThreeGmae(){
@@ -23,8 +22,10 @@ async function getThreeGmae(){
       let {data}= await axios.get(`https://free-to-play-games-database.p.rapidapi.com/api/games`,options)
       let x=data.splice(0,3);
         setgame(x)
- 
 }
+useEffect(()=>{
+  console.log(game);
+},[game ])
 
 
 

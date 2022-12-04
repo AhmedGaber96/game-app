@@ -55,23 +55,24 @@ export default function GameDetails() {
             <h1>{onegame?.title }</h1>
             <h5>About {onegame?.title }</h5>
             <p>{onegame?.description}</p>
-            
            
 
-        
-        <ul className='list-unstyled'>
-             {onegame.platform=="PC (Windows)"?<>
-             <h5>Minimum System Requirements</h5>
-             <li> <span className='fw-bold'>Graphic : </span> {onegame?.minimum_system_requirements.graphics} </li>
-                <li><span className='fw-bold'>memory : </span> {onegame?.minimum_system_requirements.memory}</li>
-                <li><span className='fw-bold'>os : </span> {onegame?.minimum_system_requirements.os}</li>
-                <li> <span className='fw-bold'>processor  : </span>{onegame?.minimum_system_requirements.processor }</li>
-                <li><span className='fw-bold'>storage: </span> {onegame?.minimum_system_requirements.storage  }</li>
-             </>:<>
+            {onegame?.platform==="Web Browser"? <>
+            </> : <>
+            <ul className='list-unstyled'>
+          
+         
+          <h5>Minimum System Requirements</h5>
+           <li> <span className='fw-bold'>Graphic : </span> {onegame?.minimum_system_requirements.graphics} </li>
+              <li><span className='fw-bold'>memory : </span> {onegame?.minimum_system_requirements.memory}</li>
+              <li><span className='fw-bold'>os : </span> {onegame?.minimum_system_requirements.os}</li>
+              <li> <span className='fw-bold'>processor  : </span>{onegame?.minimum_system_requirements.processor }</li>
+              <li><span className='fw-bold'>storage: </span> {onegame?.minimum_system_requirements.storage  }</li>
+              
+          </ul>
+            </>}
 
-             </> }
-                
-            </ul>
+      
 
 
 
@@ -91,7 +92,46 @@ export default function GameDetails() {
                     <img src={onegame?.screenshots[2].image} alt=""  />
                 </div>
             </OwlCarousel>
-            <div className='mt-3'>
+            <div className='mt-3 mb-4'>
+              <h2 className='mb-3'>Additional Information</h2>
+              <div className="row">
+                <div className="col-6 col-md-4">
+                  <span className='text-muted'>Title</span>
+                  <p>{onegame.title}</p>
+                  
+                </div>
+                <div className="col-6 col-md-4">
+                  <span className='text-muted'>Developer</span>
+                  <p>{onegame.developer}</p>
+
+                </div>
+                <div className="col-6 col-md-4">
+                  <span className='text-muted'>publisher</span>
+                  <p>{onegame.publisher}</p>
+
+                </div>
+                <div className="col-6 col-md-4">
+                  <span className='text-muted'>Release Date</span>
+                  <p>{onegame.release_date}</p>
+
+                </div>
+                <div className="col-6 col-md-4">
+                  <span className='text-muted'>Genre</span>
+                  <p>{onegame.genre}</p>
+
+                </div>
+                <div className="col-6 col-md-4">
+                  <span className='text-muted'>Platform</span>
+                  <p>{onegame.platform==='Web Browser'? <>
+                   <i className='fas fa-window-maximize'></i> Web Browser
+                  </>:<>
+                  <i className='fab fa-windows '></i> Windows
+
+                  </>}</p>
+
+                </div>
+
+              </div>
 
             </div>
         </div>

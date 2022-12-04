@@ -68,15 +68,6 @@ function submiteFromRigst(e){
 
 }
 
-
-
-
-
-
-
-
-
-
   return (
     <div className='bigmargin'>
         <div className="container secound-color p-0 my-5">
